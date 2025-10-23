@@ -1,0 +1,354 @@
+<!doctype html>
+<html>
+
+<head>
+    <link rel="icon"    href="Logopit_1622928537513.png"  type="image/png">
+
+  <h1>Eren ERKAYA</h1>
+  <title>ERKAYA</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buton Hover Efekti</title>
+
+
+   
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+
+
+    button {
+      background-color: #1c22a0;
+      /* Mavi renk */
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: opacity 0.3s;
+      /* Yumuşak geçiş */
+    }
+
+    button:hover {
+      opacity: 0.4;
+      /* Şeffaflık efekti */
+    }
+
+    .fotoparla {
+      width: 250px;
+      transition: 0.4s;
+    }
+
+
+    /* Parlama efekti sadece bu sınıfa sahip butonda olacak */
+    .parlayan {
+      position: relative;
+      background-color: #00d9ff;
+      color: white;
+      overflow: hidden;
+    }
+
+    /* Parlama çizgisi */
+    .parlayan::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(120deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0));
+      transform: skewX(-25deg);
+    }
+
+    /* Hover olunca efekt aktif olur */
+    .parlayan:hover::before {
+      animation: parlama 0.8s forwards;
+    }
+
+    /* Sağdan sola kayan animasyon */
+    @keyframes parlama {
+      from {
+        left: -75%;
+      }
+
+      to {
+        left: 125%;
+      }
+    }
+
+
+
+    /* Hover olunca sadece görünür kısımlar parlar */
+    .fotoparla:hover {
+      filter: drop-shadow(0 0 15px #ff0000);
+      transform: scale(1.03);
+    }
+
+    .foto {
+      width: 250px;
+      transition: 0.4s;
+    }
+
+    /* Hover olunca sadece görünür kısımlar parlar */
+    .foto:hover {
+      filter: drop-shadow(0 0 15px #0007d800);
+      transform: scale(1.03);
+    }
+
+
+
+    input:focus {
+      border-color: #5563DE;
+      box-shadow: 0 0 8px rgba(85, 99, 222, 0.4);
+      outline: none;
+    }
+
+    input {
+      padding: 6px 8px;
+      font-size: 13px;
+      border-radius: 6px;
+      max-width: 240px;
+      /* istersen genişliği sınırla */
+    }
+
+
+    .form-row {
+      display: flex;
+      align-items: center;
+      /* label ve input’u dikeyde ortalar */
+      margin-bottom: 12px;
+    }
+
+    /* Etiketler aynı genişlikte */
+    label {
+      width: 110px;
+      /* hepsi aynı hizada olur */
+      font-weight: 500;
+      color: #333;
+    }
+
+    /* Input alanları */
+    input {
+      flex: 1;
+      /* kalan alanı kaplasın */
+      padding: 8px 10px;
+      font-size: 14px;
+      border: 1.5px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+      transition: all 0.2s ease;
+    }
+
+    /* Tüm input türleri eşit hizada olsun */
+    input[type="date"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="text"],
+    input[type="password"] {
+      height: 38px;
+      /* sabit yükseklik ver */
+      padding: 0 10px;
+      /* iç boşlukları eşitle */
+    }
+
+
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #ff2e2e;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      z-index: 1000;
+    }
+
+    .navbar-title {
+      position: absolute;
+      left: 20px;
+      font-weight: bold;
+      font-size: 26px;
+      color: white;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .navbar.show-title .navbar-title {
+      opacity: 2;
+    }
+
+    /* navbar buton */
+    .navbarb {
+      border: 1px solid #ff2e2e;
+      /* ince gri çizgi */
+      border-radius: 8px;
+      /* köşeleri yuvarla */
+      padding: 10px 20px;
+      background-color: #ff2e2e;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      transition: all 0.6s ease;
+      /* geçiş yumuşaklığı */
+    }
+
+    .navbarb:hover {
+      background-color: #ffffff;
+      /* üstüne gelince  */
+      border-color: #000000a7;
+      /* kenarlık rengi değişsin */
+      color: black;
+    }
+
+     
+     
+     
+     </style>
+
+  <script>
+    window.addEventListener("scroll", function () {
+      const navbar = document.querySelector(".navbar");
+      const title = document.querySelector(".navbar-title");
+
+      if (window.scrollY > 100) { // aşağı inince başlık belirsin
+        navbar.classList.add("show-title");
+      } else {
+        navbar.classList.remove("show-title");
+      }
+    });
+  </script>
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="navbar">
+    <span class="navbar-title">Eren ERKAYA</span>
+    <button class="navbarb">Hakkımızda</button>
+    <button class="navbarb">İletişim Bilgileri</button>
+    <button class="navbarb">Hizmetler</button>
+    <button class="navbarb">Sık Sorulan Sorular</button>
+  </div>
+
+
+
+
+
+  <img id="foto" src="İMG/ERKAYA-29-09-2025 (1).png" class="foto" width="192" alt="Yazılı Resim">
+  <a href="https://www.kulturportali.gov.tr/portal/turk-tarihine-genel-bakis" target="_blank">
+    <img id="foto2"
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag-map_of_Turkey.svg/500px-Flag-map_of_Turkey.svg.png"
+      class="fotoparla" alt="Türkiye Haritası">
+  </a>
+
+  <button onclick="alert('hoşgeldiniz')">Hoşgeldiniz</button>
+
+  <h2>İlk Site</h2>
+  <a href="https://hvsonmez.medium.com/ba%C5%9Fl%C4%B1k-etiketleri-cbfc4ef5c57d" target="_blank"
+    title="Etiketlere gider">WEB site</a>
+
+  <p>Paragrafım</p>
+  <dt>Yazılım Geliştirme</dt>
+  <dd>Yazılım geliştirme bölümü, teorik eğitimi ve uygulama projelerini birlikte eğitim veren bir bölümdür.</dd>
+  <br>
+  <form action="">
+    <label for="ad">İsim</label>
+    <input type="text" name="isim" id="ad" placeholder="İsminizi Giriniz">
+
+    <br>
+
+    <label for="soyad">Soyad</label>
+    <input type="text" name="soyad" id="soyad" placeholder="Soyadınızı Giriniz">
+    <br>
+
+    <label for="şifre">Şifre</label>
+    <input type="password" name="şifre" id="şifre" placeholder="Şifrenizi Giriniz" maxlength="4">
+
+    <br>
+
+    <label for="eposta">E Posta</label>
+    <input type="email" name="şifre" id="eposta" placeholder="user@.gmail.com">
+
+    <br>
+
+    <label for="telefon">Telefon</label>
+    <input type="tel" name="telefon" id="telefon" placeholder="+90 (555)-555-5555">
+
+    <br>
+
+    <label for="Doğum">Doğum Gününüz</label>
+    <input type="date" name="Doğum Günü" id="Doğum" placeholder="+90 (555)-555-5555">
+    <br><br>
+
+    <label for="cinsiyet:">Cinsiyet:</label>
+    <label for="Kadın">Kadın</label>
+    <input class="cins" type="radio" name="cinsiyet" id="kadın" value="kadın">
+    <label for="Erkek">Erkek</label>
+    <input class="cins" type="radio" name="cinsiyet" id="erkek" value="erkek">
+
+    <br>
+
+    <select name="" id="">
+      <option value="">Öneri</option>
+      <option value="">Şikayet</option>
+      <option value="">Dilekçe</option>
+    </select>
+    <br><br>
+    <label for="onay">Bilgilerimi Onaylıyorum</label>
+    <input type="checkbox" id="onay">
+    <br><br><br>
+    <input type="submit">
+
+        
+
+    <form action="">
+
+
+    </form>
+    <br>
+    <a href="https://obs.dpu.edu.tr/" target="_blank">
+      <button class="parlayan">DPÜ OBS</button>
+    </a>
+
+    <a href="https://oys.dpu.edu.tr/" target="_blank">
+      <button class="parlayan">Canlı Ders</button>
+    </a>
+
+    <h3>Ders Programım</h3>
+    <table bgcolor="black" width="400">
+      <tr bgcolor="grey">
+        <th width="80">Pazartesi</th>
+        <th width="80">Salı</th>
+        <th width="80">Çarşamba</th>
+        <th width="80">Perşembe</th>
+        <th width="80">Cuma</th>
+      </tr>
+      <tr align="center" bgcolor="lightgrey">
+        <td>14.00-16.50</td>
+        <td>09.00-11.00</td>
+        <td>14.00-19.50</td>
+        <td>14.00-16.50</td>
+        <td>11.00-13.00</td>
+      </tr>
+    </table>
+    <br>
+
+</body>
+
+</html>
