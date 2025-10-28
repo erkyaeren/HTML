@@ -327,70 +327,79 @@
 
 
 
-/* 📱 Mobil uyumlu tasarım - responsive */
+/* 📱 Mobil uyumlu düzenleme (masaüstüne benzer kalır) */
 @media (max-width: 768px) {
 
-  /* Navbar butonları alt alta gelsin */
+  body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+  }
+
+  /* Navbar */
   .navbar {
-    flex-direction: column;
-    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
     padding: 10px;
-    position: static; /* mobilde sabit kalmasın */
+    position: relative;
   }
 
   .navbarb {
-    width: 90%;
-    font-size: 14px;
+    font-size: 15px;
+    padding: 8px 12px;
   }
 
   .navbar-title {
-    position: static;
-    margin-bottom: 8px;
-    font-size: 20px;
+    font-size: 22px;
+    margin: 5px 0;
+    text-align: center;
   }
 
-  /* Fotoğraflar taşmasın */
+  /* Görseller ekran dışına taşmasın */
   img {
-    max-width: 90%;
+    max-width: 100%;
     height: auto;
   }
 
-  /* Yazılar ve form */
-  body {
-    text-align: center;
-    font-size: 15px;
+  /* İçerik ortalansın ama sıkışmasın */
+  main, section, div {
+    padding: 10px;
   }
 
+  /* Form alanları dar ekran için optimize */
   form {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  label {
-    width: auto;
-    margin-top: 8px;
+  input, select, textarea {
+    width: 90%;
+    max-width: 350px;
+    font-size: 15px;
   }
 
-  input, select {
-    width: 80%;
-    max-width: 280px;
-  }
-
-  /* Sosyal ikonlar sarmalansın */
+  /* Sosyal medya ikonları düzgün dizilsin */
   .social-icons {
-    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
     gap: 15px;
+    flex-wrap: wrap;
   }
 
   .social-icons img {
-    width: 35px;
+    width: 40px;
+    height: auto;
   }
 
-  table {
-    width: 100%;
+  /* Uzun yazılar kenardan taşmasın */
+  p, h1, h2, h3 {
+    word-wrap: break-word;
+    text-align: center;
   }
 }
+
 
      
      
@@ -569,3 +578,4 @@
 
 
 </html>
+
