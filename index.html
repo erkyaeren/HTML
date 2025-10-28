@@ -209,6 +209,189 @@
       color: black;
     }
 
+
+
+      
+    /* HİZMETLER HOVER MENÜSÜ */
+.hizmetler-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.hizmetler-content {
+  display: none;
+  position: absolute;
+  background-color: rgba(131, 131, 131, 0.548);
+  min-width: 180px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  top: 48px;
+  left: 0;
+  z-index: 999;
+  overflow: hidden;
+}
+
+/* Menü açılış animasyonu */
+@keyframes slideDownFade {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover olunca animasyonlu görünüm */
+.hizmetler-dropdown:hover .hizmetler-content {
+  display: block;
+  animation: slideDownFade 0.6s ease forwards;
+}
+
+.hizmetler-content p {
+  color: black;
+  padding: 10px 16px;
+  margin: 0;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.hizmetler-content p:hover {
+  background-color: #ff2e2e;
+  color: white;
+}
+
+/* Hover olunca menü görünür */
+.hizmetler-dropdown:hover .hizmetler-content {
+  display: block;
+}
+
+
+
+/* İLETİŞİM HOVER MENÜSÜ */
+.iletisim-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.iletisim-content {
+  display: none;
+  position: absolute;
+  background-color: rgb(131, 131, 131);
+  min-width: 220px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  top: 48px;
+  left: 0;
+  z-index: 999;
+  overflow: hidden;
+}
+
+.iletisim-content p {
+  color: black;
+  padding: 10px 16px;
+  margin: 0;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.iletisim-content p:hover {
+  background-color: #ff2e2e;
+  color: white;
+}
+
+/* Hover olunca menü görünür + animasyonlu */
+.iletisim-dropdown:hover .iletisim-content {
+  display: block;
+  animation: slideDownFade 0.4s ease forwards;
+}
+
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.social-icons img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 50%;
+}
+
+.social-icons img:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+
+/* 📱 Mobil uyumlu tasarım - responsive */
+@media (max-width: 768px) {
+
+  /* Navbar butonları alt alta gelsin */
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    position: static; /* mobilde sabit kalmasın */
+  }
+
+  .navbarb {
+    width: 90%;
+    font-size: 14px;
+  }
+
+  .navbar-title {
+    position: static;
+    margin-bottom: 8px;
+    font-size: 20px;
+  }
+
+  /* Fotoğraflar taşmasın */
+  img {
+    max-width: 90%;
+    height: auto;
+  }
+
+  /* Yazılar ve form */
+  body {
+    text-align: center;
+    font-size: 15px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  label {
+    width: auto;
+    margin-top: 8px;
+  }
+
+  input, select {
+    width: 80%;
+    max-width: 280px;
+  }
+
+  /* Sosyal ikonlar sarmalansın */
+  .social-icons {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .social-icons img {
+    width: 35px;
+  }
+
+  table {
+    width: 100%;
+  }
+}
+
      
      
      
@@ -238,14 +421,33 @@
 
 
 
-  <div class="navbar">
+ <div class="navbar">
+
     <span class="navbar-title">Eren ERKAYA</span>
-    <button class="navbarb">Hakkımızda</button>
-    <button class="navbarb">İletişim Bilgileri</button>
-    <button class="navbarb">Hizmetler</button>
-    <button class="navbarb">Sık Sorulan Sorular</button>
+
+   <button class="navbarb">Hakkımızda</button>
+
+   <div class="iletisim-dropdown">
+  <button class="navbarb">İletişim Bilgileri</button>
+  <div class="iletisim-content">
+    <p>Telefon: +90 (555) 555 55 55</p>
+    <p>E-Posta: eren.erkaya@ogr.dpu.edu.tr</p>
+    <p>Adres: Kütahya, Türkiye</p>
+  </div>
+</div>
+   
+   <div class="hizmetler-dropdown">
+  <button class="navbarb">Hizmetler</button>
+  <div class="hizmetler-content">
+    <p>Web Tasarım</p>
+    <p>CSS</p>
+    <p>C#</p>
+  </div>
   </div>
 
+  <button class="navbarb">Sık Sorulan Sorular</button>
+
+  </div>
 
 
 
@@ -349,6 +551,21 @@
     </table>
     <br>
 
+      <h3 style="text-align: center;">Sosyal Medya Hesapları</h3>
+<div class="social-icons">
+  <a href="https://www.instagram.com/erkyaeren" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/500px-Instagram_icon.png" alt="Instagram" width="40">
+  </a>
+  <a href="https://www.x.com/erkyaeren" target="_blank">
+    <img src="https://img.freepik.com/premium-psd/black-brand-new-twitter-x-logo-icon_1129635-1.jpg?semt=ais_hybrid&w=740&q=80" alt="X" width="40">
+  </a>
+  <a href="https://1000kitap.com/erkyaeren" target="_blank">
+    <img src="https://img.ekstat.com/profiles/1000kitap-637863165456191737.jpg" alt="1000Kitap" width="40">
+  </a>
+</div>
+
+
 </body>
+
 
 </html>
