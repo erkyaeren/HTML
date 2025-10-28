@@ -327,81 +327,49 @@
 
 
 
-/* 📱 Mobil uyumlu düzenleme (masaüstüne benzer kalır) */
+/* Mobil navbar gizle / masaüstünde görünmez */
+.mobile-navbar {
+  display: none;
+}
+
+/* Mobil ekran ayarları */
 @media (max-width: 768px) {
-
-  body {
-    margin: 0;
-    padding: 0;
-    font-size: 16px;
-  }
-
-  /* Navbar */
   .navbar {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-    padding: 10px;
-    position: relative;
+    display: none; /* Masaüstü navbar gizlenir */
   }
-
-  .navbarb {
-    font-size: 15px;
-    padding: 8px 12px;
-  }
-
-  .navbar-title {
-    font-size: 22px;
-    margin: 5px 0;
-    text-align: center;
-  }
-
-  /* Görseller ekran dışına taşmasın */
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  /* İçerik ortalansın ama sıkışmasın */
-  main, section, div {
-    padding: 10px;
-  }
-
-  /* Form alanları dar ekran için optimize */
-  form {
+  .mobile-navbar {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #ff2e2e;
+    padding: 10px;
   }
 
-  input, select, textarea {
-    width: 90%;
-    max-width: 350px;
-    font-size: 15px;
+  .mobile-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
   }
 
-  /* Sosyal medya ikonları düzgün dizilsin */
-  .social-icons {
+  .mobile-links.show {
     display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
   }
 
-  .social-icons img {
-    width: 40px;
-    height: auto;
+  .hamburger-menu {
+    font-size: 26px;
+    cursor: pointer;
+    color: white;
   }
 
-  /* Uzun yazılar kenardan taşmasın */
-  p, h1, h2, h3 {
-    word-wrap: break-word;
-    text-align: center;
+  .navbarb {
+    width: 100%;
+    padding: 12px 0;
+    border-top: 1px solid #ffffff50;
   }
 }
 
 
-     
      
      
      </style>
@@ -417,6 +385,11 @@
         navbar.classList.remove("show-title");
       }
     });
+
+
+      function toggleMobileMenu() {
+  document.querySelector('.mobile-links').classList.toggle('show');
+}
   </script>
 
 
@@ -459,6 +432,29 @@
   </div>
 
 
+
+    <!-- Sadece mobilde görünecek hamburger navbar -->
+<div class="mobile-navbar">
+  <span class="navbar-title">Eren ERKAYA</span>
+  <div class="hamburger-menu" onclick="toggleMobileMenu()">☰</div>
+  <div class="mobile-links">
+    <button class="navbarb">Hakkımızda</button>
+    <div class="iletisim-dropdown">İletişim</div>
+    <div class="iletisim-content">
+    <p>Telefon: +90 (555) 555 55 55</p>
+    <p>E-Posta: eren.erkaya@ogr.dpu.edu.tr</p>
+    <p>Adres: Kütahya, Türkiye</p>
+  </div>
+
+    <div class="hizmetler-dropdown">Hizmetler</div>
+    <div class="hizmetler-content">
+    <p>Web Tasarım</p>
+    <p>CSS</p>
+    <p>C#</p>
+  </div>
+    <button class="navbarb">Sık Sorulan Sorular</button>
+  </div>
+</div>
 
 
   <img id="foto" src="İMG/ERKAYA-29-09-2025 (1).png" class="foto" width="192" alt="Yazılı Resim">
@@ -578,4 +574,5 @@
 
 
 </html>
+
 
